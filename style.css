@@ -1,0 +1,457 @@
+/* Import fun, crafty fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    --primary-purple: #6a0dad; /* Deep royal purple */
+    --bright-purple: #8a2be2; /* vibrant accent */
+    --soft-purple-bg: #f3e5f5; /* Very light background purple */
+    --craft-paper: #fafafa; /* Clean off-white */
+    --text-dark: #2c1e35;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--soft-purple-bg);
+    /* A subtle diagonal texture to feel like fancy paper */
+    background-image: repeating-linear-gradient(45deg, var(--soft-purple-bg) 25%, transparent 25%, transparent 75%, var(--soft-purple-bg) 75%, var(--soft-purple-bg)), repeating-linear-gradient(45deg, var(--soft-purple-bg) 25%, var(--craft-paper) 25%, var(--craft-paper) 75%, var(--soft-purple-bg) 75%, var(--soft-purple-bg));
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, .fun-card h3 {
+    font-family: 'Fredoka One', cursive; /* Chunky, friendly header font */
+    color: var(--primary-purple);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Header with personality --- */
+header {
+    background: linear-gradient(135deg, var(--primary-purple), var(--bright-purple));
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(106, 13, 173, 0.4);
+    border-bottom-left-radius: 50% 20px;
+    border-bottom-right-radius: 50% 20px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: white;
+    font-size: 3.5em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* --- The "Our Story" Hero Section --- */
+.hero-intro {
+    background-color: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(106, 13, 173, 0.15);
+    text-align: center;
+    margin-bottom: 50px;
+    border: 3px dashed var(--bright-purple); /* A stitched look */
+    position: relative;
+}
+
+/* --- ADDITIONS FOR NEW MEDIA SECTION IN STYLE A --- */
+
+/* The container for the new video section */
+.video-showcase {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 25px;
+    border: 4px dashed var(--bright-purple);
+    box-shadow: 0 10px 25px rgba(106, 13, 173, 0.1);
+}
+
+/* The catchphrase text area */
+.showcase-catchphrase {
+    flex: 1;
+}
+
+.showcase-catchphrase h2 {
+    font-size: 2.5em;
+    margin-top: 0;
+    line-height: 1.1;
+    /* A slight tilt for fun */
+    transform: rotate(-2deg);
+}
+
+.showcase-catchphrase p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* The video container */
+.showcase-video-container {
+    flex: 1.5;
+    position: relative;
+    padding-bottom: 40%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 5px solid white;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: rotate(2deg);
+}
+
+.showcase-video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* UPDATE FOR THE PROJECT CARDS IMAGES */
+/* We removed the placeholder div and added real imgs */
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Ensures photos fill the space without stretching */
+    border-bottom: 4px solid var(--soft-purple-bg);
+}
+
+/* Responsive adjust for smaller screens */
+@media (max-width: 768px) {
+    .video-showcase {
+        flex-direction: column;
+        text-align: center;
+    }
+    .showcase-catchphrase h2, .showcase-video-container {
+        transform: none; /* Remove tilts on mobile */
+    }
+    .showcase-video-container {
+         padding-bottom: 56.25%; /* standard 16:9 aspect ratio for mobile */
+         width: 100%;
+    }
+}
+
+.family-badge {
+    background-color: var(--bright-purple);
+    color: white;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.hero-intro p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* --- Huge Fun Buttons (Now "Project Cards") --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.fun-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.fun-card {
+    background: white;
+    text-decoration: none;
+    color: var(--text-dark);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effects for excitement */
+.fun-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(106, 13, 173, 0.25);
+    border-color: var(--bright-purple);
+}
+
+.card-image-placeholder {
+    height: 200px;
+    background: linear-gradient(to top, var(--soft-purple-bg), white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: var(--bright-purple);
+    opacity: 0.7;
+}
+
+.card-content {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.fun-card h3 {
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.card-cta {
+    margin-top: auto; /*Pushes button to bottom */
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.card-img {
+    object-fit: contain;
+}
+
+.fun-card:hover .card-cta {
+    background-color: var(--bright-purple);
+}
+
+
+/* --- Store Locator --- */
+.store-locator {
+    background: linear-gradient(135deg, #eadaf2, #d3c0e5);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: inset 0 0 20px rgba(106, 13, 173, 0.1);
+}
+
+.store-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.store-list li {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: var(--primary-purple);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- PRODUCT DETAIL PAGE SPECIFIC --- */
+.pd-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(106, 13, 173, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* A decorative purple shape in the background of the product page */
+.pd-layout::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: var(--soft-purple-bg);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.pd-image-container {
+    flex: 1 1 450px;
+    z-index: 1;
+}
+
+.pd-image-container img {
+    width: 100%;
+    border-radius: 20px;
+    border: 4px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: rotate(-2deg);
+    object-fit: contain;
+}
+
+.pd-info-container {
+    flex: 1 1 450px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pd-category {
+    color: var(--bright-purple);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.pd-info-container h2 {
+    font-size: 2.8em;
+    line-height: 1.1;
+    margin: 0 0 25px 0;
+}
+
+.pd-description {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #555;
+    border-left: 4px solid var(--bright-purple);
+    padding-left: 20px;
+}
+
+.feature-badge-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feature-badge-list li {
+    background-color: var(--soft-purple-bg);
+    color: var(--primary-purple);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.color-dots-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.color-dot {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* --- RELATED PRODUCTS CAROUSEL (Style A) --- */
+.related-products-section {
+    margin-block: 100px;
+    padding-inline: 10%;
+    border-top: 3px dashed #ddd; /* Crafty separator line */
+}
+
+#related-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--primary-purple);
+}
+
+.related-grid {
+    display: grid;
+    /* Auto-fit will create as many columns as fit, min 200px wide */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.related-card {
+    background: white;
+    border-radius: 15px;
+    text-decoration: none;
+    color: var(--text-dark);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.related-card:hover {
+    transform: translateY(-5px) rotate(1deg); /* Slight crafty tilt */
+    border-color: var(--bright-purple);
+    box-shadow: 0 8px 20px rgba(106, 13, 173, 0.2);
+}
+
+.related-image-wrapper {
+    height: 150px;
+    overflow: hidden;
+}
+
+.related-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.related-card h4 {
+    padding: 15px 15px 5px 15px;
+    margin: 0;
+    font-size: 1.1em;
+    /* Use the fun header font defined at the top of style.css */
+    font-family: 'Fredoka One', cursive; 
+}
+
+.related-card .view-link {
+    display: block;
+    padding: 10px 15px 15px 15px;
+    font-weight: bold;
+    color: var(--bright-purple);
+    font-size: 0.9em;
+    margin-top: auto; /* Pushes link to bottom */
+}
