@@ -27,6 +27,7 @@ body {
     color: var(--text-dark);
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
     overflow-x: hidden; /* Prevents horizontal scroll if logo sticks out too far */
 }
 
@@ -46,19 +47,17 @@ header {
     position: relative; /* Essential for floating children */
     background: linear-gradient(135deg, var(--primary-red), var(--crafty-purple), var(--deep-blue));
     color: white;
-    /* Added more padding top to make room for the text below the floating logo */
     padding: 40px 20px 30px; 
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     border-bottom: 5px solid var(--fun-green);
-    margin-bottom: 60px; /* Increased margin to clear the floating element */
 }
 
 /* THE FLOATING LOGO */
 .logo-floating {
     position: absolute;
-    top: 20px; /* Hangs off the top edge */
-    left: 10%; /* Positioned on the left */
+    top: 10px; /* Hangs off the top edge */
+    left: 5%; /* Positioned on the left */
     width: 250px; /* Fixed smaller size suitable for side placement */
     height: auto;
     z-index: 100; /* Ensures it floats ABOVE everything else */
@@ -437,16 +436,13 @@ header p {
 /* ========================================= */
 
 .main-navigation {
-    /* Dark blue background to contrast with the colorful header above */
     background-color: var(--deep-blue);
-    /* Green border to match the header theme */
     border-bottom: 4px solid var(--fun-green);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    /* Sits just below the main header margin */
-    margin-top: -30px; /* Pull it up slightly to meet the header margin */
+    margin-top: -30px;
     margin-bottom: 40px;
     position: relative;
-    z-index: 90; /* High z-index so dropdowns go over content */
+    z-index: 90;
 }
 
 /* The container for the list items */
