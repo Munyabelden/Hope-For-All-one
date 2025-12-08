@@ -1,29 +1,38 @@
+/* style.css - LOGO FLOATING THEME */
+
 /* Import fun, crafty fonts */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap');
 
 :root {
-    --primary-purple: #6a0dad; /* Deep royal purple */
-    --bright-purple: #8a2be2; /* vibrant accent */
-    --soft-purple-bg: #f3e5f5; /* Very light background purple */
-    --craft-paper: #fafafa; /* Clean off-white */
+    /* --- COLOR PALETTE --- */
+    --primary-red: #A6192E;   
+    --crafty-purple: #9B59B6; 
+    --fun-green: #27AE60;     
+    --deep-blue: #2C3E50;     
+    
+    /* Backgrounds */
+    --soft-bg: #f8f4f0;       
+    --craft-paper: #ffffff;   
     --text-dark: #2c1e35;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: var(--soft-purple-bg);
-    /* A subtle diagonal texture to feel like fancy paper */
-    background-image: repeating-linear-gradient(45deg, var(--soft-purple-bg) 25%, transparent 25%, transparent 75%, var(--soft-purple-bg) 75%, var(--soft-purple-bg)), repeating-linear-gradient(45deg, var(--soft-purple-bg) 25%, var(--craft-paper) 25%, var(--craft-paper) 75%, var(--soft-purple-bg) 75%, var(--soft-purple-bg));
+    background-color: var(--soft-bg);
+    background-image: radial-gradient(var(--craft-paper) 20%, transparent 20%),
+                      radial-gradient(var(--craft-paper) 20%, transparent 20%);
+    background-color: var(--soft-bg);
     background-position: 0 0, 10px 10px;
     background-size: 20px 20px;
     color: var(--text-dark);
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scroll if logo sticks out too far */
 }
 
 h1, h2, h3, .fun-card h3 {
-    font-family: 'Fredoka One', cursive; /* Chunky, friendly header font */
-    color: var(--primary-purple);
+    font-family: 'Fredoka One', cursive; 
+    color: var(--primary-red);
 }
 
 .container {
@@ -32,46 +41,60 @@ h1, h2, h3, .fun-card h3 {
     padding: 20px;
 }
 
-/* --- Header with personality --- */
+/* --- NEW HEADER STYLES --- */
 header {
-    background: linear-gradient(135deg, var(--primary-purple), var(--bright-purple));
+    position: relative; /* Essential for floating children */
+    background: linear-gradient(135deg, var(--primary-red), var(--crafty-purple), var(--deep-blue));
     color: white;
-    padding: 40px 20px;
+    /* Added more padding top to make room for the text below the floating logo */
+    padding: 40px 20px 30px; 
     text-align: center;
-    box-shadow: 0 4px 12px rgba(106, 13, 173, 0.4);
-    border-bottom-left-radius: 50% 20px;
-    border-bottom-right-radius: 50% 20px;
-    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-bottom: 5px solid var(--fun-green);
+    margin-bottom: 60px; /* Increased margin to clear the floating element */
 }
 
+/* THE FLOATING LOGO */
+.logo-floating {
+    position: absolute;
+    top: 20px; /* Hangs off the top edge */
+    left: 10%; /* Positioned on the left */
+    width: 250px; /* Fixed smaller size suitable for side placement */
+    height: auto;
+    z-index: 100; /* Ensures it floats ABOVE everything else */
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); /* Enhanced shadow for depth */
+    transform: rotate(-5deg); /* A slight jaunty tilt for extra craftiness */
+}
+
+/* The Centered H1 Text */
 header h1 {
-    color: white;
-    font-size: 3.5em;
     margin: 0;
+    font-size: 3.5em;
+    color: white; /* White text on colored bg */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    line-height: 1;
 }
 
 header p {
     font-size: 1.3em;
     font-weight: bold;
     letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    margin-top: 10px;
 }
 
-/* --- The "Our Story" Hero Section --- */
+/* --- Hero Sections --- */
 .hero-intro {
     background-color: white;
     padding: 40px;
     border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(106, 13, 173, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin-bottom: 50px;
-    border: 3px dashed var(--bright-purple); /* A stitched look */
+    border: 3px dashed var(--crafty-purple); 
     position: relative;
 }
 
-/* --- ADDITIONS FOR NEW MEDIA SECTION IN STYLE A --- */
-
-/* The container for the new video section */
 .video-showcase {
     display: flex;
     align-items: center;
@@ -80,29 +103,20 @@ header p {
     background-color: white;
     padding: 30px;
     border-radius: 25px;
-    border: 4px dashed var(--bright-purple);
-    box-shadow: 0 10px 25px rgba(106, 13, 173, 0.1);
+    border: 4px dashed var(--deep-blue);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* The catchphrase text area */
-.showcase-catchphrase {
-    flex: 1;
-}
-
+.showcase-catchphrase { flex: 1; }
 .showcase-catchphrase h2 {
     font-size: 2.5em;
     margin-top: 0;
     line-height: 1.1;
-    /* A slight tilt for fun */
     transform: rotate(-2deg);
+    color: var(--deep-blue);
 }
+.showcase-catchphrase p { font-size: 1.2em; color: #555; }
 
-.showcase-catchphrase p {
-    font-size: 1.2em;
-    color: #555;
-}
-
-/* The video container */
 .showcase-video-container {
     flex: 1.5;
     position: relative;
@@ -114,66 +128,18 @@ header p {
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     transform: rotate(2deg);
 }
-
 .showcase-video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;
 }
 
-/* UPDATE FOR THE PROJECT CARDS IMAGES */
-/* We removed the placeholder div and added real imgs */
-.card-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover; /* Ensures photos fill the space without stretching */
-    border-bottom: 4px solid var(--soft-purple-bg);
-}
-
-/* Responsive adjust for smaller screens */
-@media (max-width: 768px) {
-    .video-showcase {
-        flex-direction: column;
-        text-align: center;
-    }
-    .showcase-catchphrase h2, .showcase-video-container {
-        transform: none; /* Remove tilts on mobile */
-    }
-    .showcase-video-container {
-         padding-bottom: 56.25%; /* standard 16:9 aspect ratio for mobile */
-         width: 100%;
-    }
-}
-
-.family-badge {
-    background-color: var(--bright-purple);
-    color: white;
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.hero-intro p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-/* --- Huge Fun Buttons (Now "Project Cards") --- */
+/* --- Project Cards --- */
 .section-title {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    color: var(--primary-red);
 }
 
 .fun-cards-grid {
@@ -191,27 +157,24 @@ header p {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 3px solid transparent;
     display: flex;
     flex-direction: column;
 }
 
-/* Hover effects for excitement */
 .fun-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(106, 13, 173, 0.25);
-    border-color: var(--bright-purple);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border-color: var(--crafty-purple);
 }
+.fun-card:nth-child(odd):hover { border-color: var(--fun-green); }
+.fun-card:nth-child(even):hover { border-color: var(--crafty-purple); }
 
-.card-image-placeholder {
-    height: 200px;
-    background: linear-gradient(to top, var(--soft-purple-bg), white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3em;
-    color: var(--bright-purple);
-    opacity: 0.7;
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--soft-bg);
 }
 
 .card-content {
@@ -222,39 +185,33 @@ header p {
     flex-direction: column;
 }
 
-.fun-card h3 {
-    font-size: 1.6em;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
+.fun-card h3 { font-size: 1.6em; margin-top: 0; margin-bottom: 15px; }
 
 .card-cta {
-    margin-top: auto; /*Pushes button to bottom */
-    background-color: var(--primary-purple);
+    margin-top: auto;
+    background-color: var(--primary-red);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 30px;
     font-weight: bold;
     display: inline-block;
     transition: background-color 0.2s;
-}
-
-.card-img {
-    object-fit: contain;
+    box-shadow: 0 4px 10px rgba(166, 25, 46, 0.3);
 }
 
 .fun-card:hover .card-cta {
-    background-color: var(--bright-purple);
+    background-color: var(--fun-green);
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.4);
 }
-
 
 /* --- Store Locator --- */
 .store-locator {
-    background: linear-gradient(135deg, #eadaf2, #d3c0e5);
+    background: linear-gradient(135deg, #f3e5f5, #e0f2f1);
     padding: 40px;
     border-radius: 25px;
     text-align: center;
-    box-shadow: inset 0 0 20px rgba(106, 13, 173, 0.1);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    border: 2px solid white;
 }
 
 .store-list {
@@ -269,68 +226,49 @@ header p {
 
 .store-list li {
     background: white;
-    padding: 15px 25px;
+    padding: 15px 30px;
     border-radius: 15px;
     font-weight: bold;
-    color: var(--primary-purple);
+    font-size: 1.1em;
+    color: var(--deep-blue);
+    border: 2px solid var(--crafty-purple);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* --- PRODUCT DETAIL PAGE SPECIFIC --- */
+/* ========================================= */
+/* PRODUCT DETAIL PAGE LAYOUT (FIXED)        */
+/* ========================================= */
 .pd-layout {
     display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
+    flex-direction: column; 
+    gap: 30px;
     background: white;
-    padding: 50px;
+    padding: 30px;
     border-radius: 30px;
-    box-shadow: 0 15px 40px rgba(106, 13, 173, 0.15);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     position: relative;
     overflow: hidden;
+    border-top: 5px solid var(--crafty-purple);
 }
 
-/* A decorative purple shape in the background of the product page */
+@media (min-width: 768px) {
+    .pd-layout {
+        flex-direction: row; 
+        padding: 50px;
+        gap: 50px;
+        align-items: flex-start; 
+    }
+    .pd-image-container, .pd-info-container { flex: 1; }
+}
+
 .pd-layout::before {
     content: '';
     position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 300px;
-    height: 300px;
-    background: var(--soft-purple-bg);
+    top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    background: rgba(39, 174, 96, 0.1); 
     border-radius: 50%;
     z-index: 0;
-}
-
-.pd-image-container {
-    flex: 1 1 450px;
-    z-index: 1;
-}
-
-.pd-image-container img {
-    width: 100%;
-    border-radius: 20px;
-    border: 4px solid white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transform: rotate(-2deg);
-    object-fit: contain;
-}
-
-.pd-info-container {
-    flex: 1 1 450px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.pd-category {
-    color: var(--bright-purple);
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    display: block;
 }
 
 .pd-info-container h2 {
@@ -339,11 +277,20 @@ header p {
     margin: 0 0 25px 0;
 }
 
+.pd-category {
+    color: var(--crafty-purple);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
 .pd-description {
     font-size: 1.2em;
     line-height: 1.7;
     color: #555;
-    border-left: 4px solid var(--bright-purple);
+    border-left: 4px solid var(--fun-green);
     padding-left: 20px;
 }
 
@@ -357,54 +304,41 @@ header p {
 }
 
 .feature-badge-list li {
-    background-color: var(--soft-purple-bg);
-    color: var(--primary-purple);
+    background-color: var(--soft-bg);
+    color: var(--deep-blue);
     padding: 8px 15px;
     border-radius: 20px;
     font-weight: 600;
     font-size: 0.9em;
-}
-
-.color-dots-container {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-.color-dot {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    border: 1px solid var(--deep-blue);
 }
 
 .back-link {
     display: inline-block;
     margin-bottom: 30px;
-    color: var(--primary-purple);
+    color: var(--primary-red);
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
 }
-.back-link:hover { text-decoration: underline; }
+.back-link:hover { text-decoration: underline; color: var(--crafty-purple); }
 
-/* --- RELATED PRODUCTS CAROUSEL (Style A) --- */
+/* --- RELATED PRODUCTS GRID --- */
 .related-products-section {
-    margin-block: 100px;
-    padding-inline: 10%;
-    border-top: 3px dashed #ddd; /* Crafty separator line */
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 3px dashed var(--crafty-purple);
 }
 
 #related-title {
     text-align: center;
     font-size: 2em;
     margin-bottom: 30px;
-    color: var(--primary-purple);
+    color: var(--primary-red);
 }
 
 .related-grid {
     display: grid;
-    /* Auto-fit will create as many columns as fit, min 200px wide */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
 }
@@ -423,35 +357,77 @@ header p {
 }
 
 .related-card:hover {
-    transform: translateY(-5px) rotate(1deg); /* Slight crafty tilt */
-    border-color: var(--bright-purple);
-    box-shadow: 0 8px 20px rgba(106, 13, 173, 0.2);
+    transform: translateY(-5px) rotate(1deg);
+    border-color: var(--fun-green);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.2);
 }
 
-.related-image-wrapper {
-    height: 150px;
-    overflow: hidden;
-}
-
-.related-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
+.related-image-wrapper { height: 150px; overflow: hidden; }
+.related-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
 .related-card h4 {
     padding: 15px 15px 5px 15px;
     margin: 0;
     font-size: 1.1em;
-    /* Use the fun header font defined at the top of style.css */
     font-family: 'Fredoka One', cursive; 
+    color: var(--deep-blue);
 }
 
 .related-card .view-link {
     display: block;
     padding: 10px 15px 15px 15px;
     font-weight: bold;
-    color: var(--bright-purple);
+    color: var(--primary-red);
     font-size: 0.9em;
-    margin-top: auto; /* Pushes link to bottom */
+    margin-top: auto;
+}
+
+/* ========================================= */
+/* CAROUSEL STYLES (Must be present!)        */
+/* ========================================= */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Essential height */
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    border: 4px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+#carousel-images-track { width: 100%; height: 100%; position: relative; }
+
+.carousel-img {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: contain; 
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out; 
+    display: none; 
+}
+.carousel-img.active { opacity: 1; display: block; z-index: 1; }
+
+.carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background-color: var(--primary-red);
+    color: white;
+    border: none; font-size: 24px; cursor: pointer; z-index: 10; 
+    border-radius: 50%; width: 50px; height: 50px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.carousel-btn:hover { background-color: var(--deep-blue); }
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
+
+@media (max-width: 768px) {
+    .carousel-wrapper { height: 300px; }
+    .video-showcase { flex-direction: column; text-align: center; }
+    .showcase-catchphrase h2, .showcase-video-container { transform: none; }
+    .showcase-video-container { padding-bottom: 56.25%; width: 100%; }
+    /* Adjust floating logo on smaller screens so it doesn't cover text */
+    .logo-floating { width: 120px; top: -30px; left: 10px; }
+    header h1 { font-size: 2.5em; }
 }

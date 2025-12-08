@@ -8,17 +8,24 @@
 </head>
 <body>
 
-    <header style="padding: 20px; margin-bottom: 20px;">
-        <h1 style="font-size: 2em;">Hope for All</h1>
+    <header style="padding-bottom: 20px;"> <a href="index.html">
+            <img src="assets/file.svg" alt="Hope for All Logo" class="logo-floating">
+        </a>
+        <h1>Hope for All</h1>
     </header>
 
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Project Ideas</a>
+        <a href="index.html" class="back-link">← Back to Collection</a>
 
         <div class="pd-layout">
             
             <div class="pd-image-container">
-                 <img id="pd-image" src="" alt="Loading product...">
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
+                    <div id="carousel-images-track">
+                        </div>
+                    <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#10095;</button>
+                </div>
             </div>
             
             <div class="pd-info-container">
@@ -36,21 +43,16 @@
                         </div>
                 </div>
 
-                 <p style="margin-top: 30px; font-weight: bold; color: var(--primary-purple);">
-                    👉 Find this item at a retailer near you listed on our Home Page!
+                 <p style="margin-top: 30px; font-weight: bold; color: var(--primary-red);">
+                    👉 Check availability on Takealot, Amazon, or Makro.
                 </p>
             </div>
-        </div>
-    </div>
-    </div> 
-        <section class="related-products-section">
+        </div> <section class="related-products-section">
             <h3 id="related-title">Other Fun Supplies to Explore</h3>
-            
             <div id="related-grid" class="related-grid">
-            </div>
+                </div>
         </section>
-    </div>
 
-    <script src="script.js"></script>
+    </div> <script src="script.js"></script>
 </body>
 </html>

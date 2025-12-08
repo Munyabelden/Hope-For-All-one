@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hope for All | Fueling Family Creativity</title>
+    <title>Hope for All | Tufting & Craft Supplies South Africa</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
     <header>
+        <img src="assets/file.svg" alt="Hope for All Logo" class="logo-floating">
+        
         <h1>Hope for All</h1>
-        <p>Your local source for creative inspiration & supplies.</p>
+        <p>Your Cape Town source for creative inspiration & supplies.</p>
     </header>
 
     <div class="container">
@@ -27,63 +29,26 @@
                 </video>
             </div>
         </section>
+
         <section class="hero-intro">
-            <span class="family-badge">Family Owned & Operated</span>
-            <h2>Fueling Creativity, One Local Shelf at a Time.</h2>
-            <p>We believe the best things are made by hand, together. We don't sell online because we believe in supporting the local hobby shops you love to visit. We scour the globe for the most exciting, professional-grade crafting tools—from rug tufting to custom mug making—and stock them right in your neighborhood. We are here to spark your next big idea!</p>
+            <h2>Fueling Creativity, Delivering Quality.</h2>
+            <p>HOPE FOR ALL Online Store is an online retailer based in Cape Town, South Africa, selling a variety of hobby and craft kits, with a detailed focus on tufting equipment and supplies. Our aim is to provide quality products at affordable prices, sourcing from both local and international suppliers to fuel your next project.</p>
         </section>
 
         <section>
-            <h2 class="section-title">What will you create next?</h2>
-            <div class="fun-cards-grid">
-                
-                <a href="product-detail.html?id=f270-heat-press" class="fun-card">
-                    <img src="assets/heat press.webp" alt="Mug press" class="card-img">
-                    <div class="card-content">
-                        <h3>Design Custom Family Mugs</h3>
-                        <p>Turn drawings and photos into permanent, professional keepsakes with our unique Heart Transfer press.</p>
-                        <span class="card-cta">See the Machine!</span>
-                    </div>
-                </a>
-
-                <a href="product-detail.html?id=tufting-bundle" class="fun-card">
-                    <img src="assets/turfting rug.jpg" alt="Tufting project" class="card-img">
-                    <div class="card-content">
-                        <h3>Start a Fluffy Rug Project</h3>
-                        <p>Get the essential professional fabrics you need to start painting with yarn. Great for teens and adults!</p>
-                         <span class="card-cta">Get the Basics!</span>
-                    </div>
-                </a>
-
-                 <a href="product-detail.html?id=tufting-tools" class="fun-card">
-                    <img src="assets/Trimming tools.jpg" alt="Trimming tools" class="card-img">
-                    <div class="card-content">
-                        <h3>Sculpt Your Yarn Art</h3>
-                        <p>Level up your tufting game with precision trimmers and guides for that 3D professional finish.</p>
-                         <span class="card-cta">See Tools!</span>
-                    </div>
-                </a>
-                
-                 <a href="product-detail.html?id=electric-scissors" class="fun-card">
-                    <img src="assets/electric scissors.avif" alt="Electric scissors" class="card-img">
-                    <div class="card-content">
-                        <h3>Speed Up Craft Time Safely</h3>
-                        <p>Zip through cutting tasks with our colorful, safe electric scissors. Perfect for little helpers!</p>
-                         <span class="card-cta">View Colors!</span>
-                    </div>
-                </a>
-
+            <h2 class="section-title">Our Complete Collection</h2>
+            <div class="fun-cards-grid" id="homepage-product-grid">
+                <p>Loading products...</p>
             </div>
         </section>
 
         <section class="store-locator">
-            <h2>📍 Find Our Products Locally</h2>
-            <p>We don't have our own storefront. Find "Hope for All" quality supplies on the shelves of these amazing partners:</p>
+            <h2>📍 Also Available at Online Partners</h2>
+            <p>We are an online retailer. You can also find select supplies through these major online channels:</p>
             <ul class="store-list">
-                <li>Joe's Local Hobby Corner</li>
-                <li>The Crafty Giraffe Supplies</li>
-                <li>Downtown Maker Hub</li>
-                <li>Sarah's Sewing & More</li>
+                <li>Takealot</li>
+                <li>Amazon</li>
+                <li>Makro</li>
             </ul>
         </section>
 
@@ -92,13 +57,12 @@
     <script src="script.js"></script>
 
     <script>
-        // Find the video element by its ID
         const videoElement = document.getElementById('slow-motion-video');
-        
-        // Once the browser knows the duration of the video, set the speed.
-        videoElement.addEventListener('loadedmetadata', function() {
-            this.playbackRate = 0.32;
-        });
+        if (videoElement) {
+             videoElement.addEventListener('loadedmetadata', function() {
+                this.playbackRate = 0.32;
+            });
+        }
     </script>
 
 </body>
