@@ -533,3 +533,63 @@ header p {
          margin-top: 0; /* Reset negative margin on mobile */
     }
 }
+
+/* ========================================= */
+/* FINAL FOOTER & CONTACT STYLES             */
+/* ========================================= */
+
+/* Styling for contact info inside the store-locator section */
+.contact-info-block {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.7); /* Slightly transparent white box */
+    border-radius: 15px;
+    border: 2px dashed var(--deep-blue);
+    display: inline-block; /* Centers the block due to parent text-align:center */
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--deep-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Make phone and email clickable links */
+.contact-link {
+    color: var(--primary-red);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.contact-link:hover {
+    color: var(--fun-green);
+    text-decoration: underline;
+}
+
+/* The absolute bottom credit bar */
+.site-credit-footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    background-color: var(--deep-blue);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+/* The Nate~Anne link style */
+.credit-link {
+    color: var(--fun-green);
+    font-weight: 800;
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive; 
+    transition: color 0.3s;
+}
+.credit-link:hover {
+    color: var(--crafty-purple);
+    text-decoration: underline;
+}
