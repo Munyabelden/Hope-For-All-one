@@ -431,3 +431,109 @@ header p {
     .logo-floating { width: 120px; top: -30px; left: 10px; }
     header h1 { font-size: 2.5em; }
 }
+
+/* ========================================= */
+/* MAIN NAVIGATION BAR                       */
+/* ========================================= */
+
+.main-navigation {
+    /* Dark blue background to contrast with the colorful header above */
+    background-color: var(--deep-blue);
+    /* Green border to match the header theme */
+    border-bottom: 4px solid var(--fun-green);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* Sits just below the main header margin */
+    margin-top: -30px; /* Pull it up slightly to meet the header margin */
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 90; /* High z-index so dropdowns go over content */
+}
+
+/* The container for the list items */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1100px; /* Match container width */
+    display: flex;
+    justify-content: center; /* Center the menu items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Individual menu items */
+.nav-item {
+    position: relative;
+    margin: 0;
+}
+
+/* The main links in the bar */
+.nav-link, .dropbtn {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Fredoka One', cursive; /* Using the fun header font */
+    letter-spacing: 1px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+/* Hover state for main links */
+.nav-item:hover .nav-link, 
+.dropdown:hover .dropbtn {
+    background-color: var(--fun-green);
+    color: white;
+}
+
+/* --- DROPDOWN MENUS --- */
+
+/* The container that holds hidden links */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 100;
+    top: 100%; /* Position directly below the parent item */
+    left: 0;
+    border-top: 4px solid var(--crafty-purple);
+    border-radius: 0 0 8px 8px;
+}
+
+/* Show the dropdown when hovering over the parent LI */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* The links inside the dropdown */
+.dropdown-content a {
+    color: var(--deep-blue);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s;
+}
+
+/* Hover state for dropdown links */
+.dropdown-content a:hover {
+    background-color: var(--soft-bg);
+    color: var(--primary-red);
+    padding-left: 20px; /* Little nudge effect */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .nav-link, .dropbtn {
+        padding: 12px 10px;
+        font-size: 0.9em;
+    }
+    .main-navigation {
+         margin-top: 0; /* Reset negative margin on mobile */
+    }
+}
