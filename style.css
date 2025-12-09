@@ -47,8 +47,7 @@ header {
     position: relative;
     background: linear-gradient(135deg, var(--primary-red), var(--crafty-purple), var(--deep-blue));
     color: white;
-    /* Padding to make room for logo on left */
-    padding: 30px 20px 60px; 
+    padding: 30px 20px 40px; 
     border-bottom: 5px solid var(--fun-green);
     text-align: right; 
     display: flex;
