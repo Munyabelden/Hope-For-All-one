@@ -1,4 +1,4 @@
-/* style.css - LOGO FLOATING THEME */
+/* style.css - FIXED MOBILE & BURGER MENU */
 
 /* Import fun, crafty fonts */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap');
@@ -28,7 +28,7 @@ body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevents horizontal scroll if logo sticks out too far */
+    overflow-x: hidden;
 }
 
 h1, h2, h3, .fun-card h3 {
@@ -42,34 +42,56 @@ h1, h2, h3, .fun-card h3 {
     padding: 20px;
 }
 
-/* --- NEW HEADER STYLES --- */
+/* --- HEADER STYLES (Desktop Default) --- */
 header {
-    position: relative; /* Essential for floating children */
+    position: relative;
     background: linear-gradient(135deg, var(--primary-red), var(--crafty-purple), var(--deep-blue));
     color: white;
-    padding: 40px 20px 30px; 
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    /* Padding to make room for logo on left */
+    padding: 30px 20px 60px; 
     border-bottom: 5px solid var(--fun-green);
+    text-align: right; 
+    display: flex;
+    justify-content: flex-end;
 }
 
-/* THE FLOATING LOGO */
-.logo-floating {
+.header-content {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding-right: 20px; 
+}
+
+/* THE OVERLAPPING LOGO (Desktop) */
+.logo-overlap {
     position: absolute;
-    top: 10px; /* Hangs off the top edge */
-    left: 5%; /* Positioned on the left */
-    width: 250px; /* Fixed smaller size suitable for side placement */
+    top: 20px; 
+    left: 5%; 
+    width: 300px; 
     height: auto;
-    z-index: 100; /* Ensures it floats ABOVE everything else */
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); /* Enhanced shadow for depth */
-    transform: rotate(-5deg); /* A slight jaunty tilt for extra craftiness */
+    z-index: 100; 
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); 
+    transform: rotate(-8deg);
 }
 
-/* The Centered H1 Text */
+/* Product Detail specific header adjustments */
+.pd-header {
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+.pd-logo {
+     left: 50%;
+     transform: translateX(-50%) rotate(-5deg);
+     width: 200px;
+     top: -30px;
+}
+
+
 header h1 {
     margin: 0;
     font-size: 3.5em;
-    color: white; /* White text on colored bg */
+    color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     line-height: 1;
 }
@@ -80,6 +102,205 @@ header p {
     letter-spacing: 1px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     margin-top: 10px;
+}
+
+/* ========================================= */
+/* MAIN NAVIGATION BAR                       */
+/* ========================================= */
+.main-navigation {
+    background-color: var(--deep-blue);
+    border-bottom: 4px solid var(--fun-green);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 90;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end; /* Right aligned on desktop */
+    align-items: center;
+    min-height: 60px;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-item { position: relative; margin: 0; }
+
+.nav-link, .dropbtn {
+    display: block;
+    color: white;
+    padding: 20px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.nav-item:hover .nav-link, 
+.dropdown:hover .dropbtn {
+    background-color: var(--fun-green);
+}
+
+.store-link { color: var(--fun-green) !important; }
+.nav-item:hover .store-link { color: white !important; }
+
+/* DROPDOWNS (Desktop) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 240px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 100;
+    top: 100%;
+    right: 0; 
+    border-top: 4px solid var(--crafty-purple);
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+
+.dropdown-content a {
+    color: var(--deep-blue);
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--soft-bg);
+    color: var(--primary-red);
+    padding-left: 25px;
+}
+
+/* ========================================= */
+/* MOBILE BURGER MENU STYLES                 */
+/* ========================================= */
+.nav-toggle { display: none; } /* Hide checkbox */
+
+/* FIX 1: Force hide burger on desktop with !important */
+.nav-toggle-label {
+    display: none !important; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-left: 1em;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+    padding-right: 20px;
+    z-index: 101;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 3px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+.nav-toggle-label span::before { bottom: 8px; }
+.nav-toggle-label span::after { top: 8px; }
+
+
+/* ========================================= */
+/* MOBILE LAYOUT CHANGES (max-width: 900px)  */
+/* ========================================= */
+@media (max-width: 900px) {
+    header {
+        text-align: center;
+        justify-content: center;
+        padding: 70px 20px 30px; 
+    }
+    .header-content { padding-right: 0; }
+
+    .logo-overlap {
+        width: 150px;
+        left: 10px;
+        top: 190px;
+        transform: rotate(-5deg); /* Keep tilt, remove centering translate */
+    }
+    .pd-logo { /* Keep PD logo centered though */
+         left: 50%;
+         transform: translateX(-50%) rotate(-5deg);
+         top: -40px;
+    }
+    
+    /* Show burger icon (override desktop hide) */
+    .nav-toggle-label { display: flex !important; }
+
+    /* Hide nav list by default on mobile */
+    .nav-list {
+        position: absolute;
+        text-align: left;
+        top: 100%;
+        left: 0;
+        background: var(--deep-blue);
+        width: 100%;
+        flex-direction: column;
+        transform: scale(1, 0); /* Hidden vertically */
+        transform-origin: top;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Show nav list when checkbox is checked */
+    .nav-toggle:checked ~ .nav-list {
+        transform: scale(1, 1); /* Show */
+    }
+
+    /* Nav link styles for mobile */
+    .nav-link, .dropbtn {
+        padding: 15px 20px;
+        font-size: 1.2em;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Dropdowns on mobile (always visible) */
+    .dropdown-content {
+        position: static;
+        display: block;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background-color: rgba(0,0,0,0.1); 
+    }
+    .dropdown-content a {
+        padding-left: 40px; 
+        color: #ddd;
+    }
+    
+    /* Animate Burger to X */
+    .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
+    .nav-toggle:checked ~ .nav-toggle-label span::before {
+        transform: rotate(45deg); top: 0; background: var(--fun-green);
+    }
+    .nav-toggle:checked ~ .nav-toggle-label span::after {
+        transform: rotate(-45deg); bottom: 0; top: 0; background: var(--fun-green);
+    }
 }
 
 /* --- Hero Sections --- */
@@ -203,7 +424,7 @@ header p {
     box-shadow: 0 4px 10px rgba(39, 174, 96, 0.4);
 }
 
-/* --- Store Locator --- */
+/* --- Store Locator & Contact --- */
 .store-locator {
     background: linear-gradient(135deg, #f3e5f5, #e0f2f1);
     padding: 40px;
@@ -211,6 +432,7 @@ header p {
     text-align: center;
     box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
     border: 2px solid white;
+    margin-top: 60px;
 }
 
 .store-list {
@@ -234,8 +456,63 @@ header p {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.contact-info-block {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 15px;
+    border: 2px dashed var(--deep-blue);
+    display: inline-block;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--deep-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.contact-link {
+    color: var(--primary-red);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.contact-link:hover {
+    color: var(--fun-green);
+    text-decoration: underline;
+}
+
+/* --- Credit Footer --- */
+.site-credit-footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    background-color: var(--deep-blue);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+.site-credit-footer p { margin-bottom: 0; margin-top: 5px; }
+
+.credit-link {
+    color: var(--fun-green);
+    font-weight: 800;
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive; 
+    transition: color 0.3s;
+}
+.credit-link:hover {
+    color: var(--crafty-purple);
+    text-decoration: underline;
+}
+
 /* ========================================= */
-/* PRODUCT DETAIL PAGE LAYOUT (FIXED)        */
+/* PRODUCT DETAIL PAGE LAYOUT                */
 /* ========================================= */
 .pd-layout {
     display: flex;
@@ -382,12 +659,12 @@ header p {
 }
 
 /* ========================================= */
-/* CAROUSEL STYLES (Must be present!)        */
+/* CAROUSEL STYLES                           */
 /* ========================================= */
 .carousel-wrapper {
     position: relative;
     width: 100%;
-    height: 400px; /* Essential height */
+    height: 400px;
     overflow: hidden;
     border-radius: 15px;
     background-color: #f0f0f0;
@@ -400,7 +677,7 @@ header p {
 .carousel-img {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     object-fit: contain; 
-    opacity: 0; /* Hidden by default */
+    opacity: 0;
     transition: opacity 0.3s ease-in-out; 
     display: none; 
 }
@@ -426,174 +703,4 @@ header p {
     .video-showcase { flex-direction: column; text-align: center; }
     .showcase-catchphrase h2, .showcase-video-container { transform: none; }
     .showcase-video-container { padding-bottom: 56.25%; width: 100%; }
-    /* Adjust floating logo on smaller screens so it doesn't cover text */
-    .logo-floating { width: 120px; top: -30px; left: 10px; }
-    header h1 { font-size: 2.5em; }
-}
-
-/* ========================================= */
-/* MAIN NAVIGATION BAR                       */
-/* ========================================= */
-
-.main-navigation {
-    background-color: var(--deep-blue);
-    border-bottom: 4px solid var(--fun-green);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-top: -30px;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 90;
-}
-
-/* The container for the list items */
-.nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 1100px; /* Match container width */
-    display: flex;
-    justify-content: center; /* Center the menu items */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-/* Individual menu items */
-.nav-item {
-    position: relative;
-    margin: 0;
-}
-
-/* The main links in the bar */
-.nav-link, .dropbtn {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 15px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Fredoka One', cursive; /* Using the fun header font */
-    letter-spacing: 1px;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
-}
-
-/* Hover state for main links */
-.nav-item:hover .nav-link, 
-.dropdown:hover .dropbtn {
-    background-color: var(--fun-green);
-    color: white;
-}
-
-/* --- DROPDOWN MENUS --- */
-
-/* The container that holds hidden links */
-.dropdown-content {
-    display: none; /* Hidden by default */
-    position: absolute;
-    background-color: white;
-    min-width: 220px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 100;
-    top: 100%; /* Position directly below the parent item */
-    left: 0;
-    border-top: 4px solid var(--crafty-purple);
-    border-radius: 0 0 8px 8px;
-}
-
-/* Show the dropdown when hovering over the parent LI */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* The links inside the dropdown */
-.dropdown-content a {
-    color: var(--deep-blue);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    font-weight: 600;
-    border-bottom: 1px solid #eee;
-    transition: all 0.2s;
-}
-
-/* Hover state for dropdown links */
-.dropdown-content a:hover {
-    background-color: var(--soft-bg);
-    color: var(--primary-red);
-    padding-left: 20px; /* Little nudge effect */
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .nav-link, .dropbtn {
-        padding: 12px 10px;
-        font-size: 0.9em;
-    }
-    .main-navigation {
-         margin-top: 0; /* Reset negative margin on mobile */
-    }
-}
-
-/* ========================================= */
-/* FINAL FOOTER & CONTACT STYLES             */
-/* ========================================= */
-
-/* Styling for contact info inside the store-locator section */
-.contact-info-block {
-    margin: 25px 0;
-    padding: 20px;
-    background-color: rgba(255,255,255,0.7); /* Slightly transparent white box */
-    border-radius: 15px;
-    border: 2px dashed var(--deep-blue);
-    display: inline-block; /* Centers the block due to parent text-align:center */
-}
-
-.contact-info p {
-    margin: 10px 0;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: var(--deep-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-/* Make phone and email clickable links */
-.contact-link {
-    color: var(--primary-red);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-.contact-link:hover {
-    color: var(--fun-green);
-    text-decoration: underline;
-}
-
-/* The absolute bottom credit bar */
-.site-credit-footer {
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-    background-color: var(--deep-blue);
-    color: rgba(255,255,255,0.8);
-    font-size: 0.9em;
-    letter-spacing: 1px;
-}
-
-.site-credit-footer p {
-    margin-bottom: 0;
-}
-
-/* The Nate~Anne link style */
-.credit-link {
-    color: var(--fun-green);
-    font-weight: 800;
-    text-decoration: none;
-    font-family: 'Fredoka One', cursive; 
-    transition: color 0.3s;
-}
-.credit-link:hover {
-    color: var(--crafty-purple);
-    text-decoration: underline;
 }

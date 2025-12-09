@@ -8,56 +8,29 @@
 </head>
 <body>
 
-    <header style="padding-bottom: 20px;"> <a href="index.html">
-            <img src="assets/file.svg" alt="Hope for All Logo" class="logo-floating">
+    <header class="pd-header">
+        <a href="index.html">
+            <img src="assets/file.svg" alt="Hope for All Logo" class="logo-overlap pd-logo">
         </a>
         <h1>Hope for All</h1>
     </header>
+
     <nav class="main-navigation">
-        <ul class="nav-list">
-            <li class="nav-item">
-                <a href="index.html" class="nav-link">Home</a>
-            </li>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
 
-            <li class="nav-item dropdown">
-                <span class="dropbtn">Tufting Essentials ▾</span>
-                <div class="dropdown-content">
-                    <a href="product-detail.html?id=primary-fabric">Primary Fabric</a>
-                    <a href="product-detail.html?id=backing-fabric">Backing Fabric</a>
-                    <a href="product-detail.html?id=fabric-combo-bundle">Fabric Combo Bundle</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <span class="dropbtn">Tools & Trimmers ▾</span>
-                <div class="dropdown-content">
-                    <a href="product-detail.html?id=trimmer-with-guide">Rosewood Trimmer with Guide</a>
-                    <a href="product-detail.html?id=duckbill-scissors">Duckbill Napping Scissors</a>
-                    <a href="product-detail.html?id=trimmer-blades">Spare Trimmer Blades</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <span class="dropbtn">Power Cutting ▾</span>
-                <div class="dropdown-content">
-                    <a href="product-detail.html?id=red-electric-scissors">Vloxo Red Electric Scissors</a>
-                    <a href="product-detail.html?id=white-electric-scissors">Sleek White Electric Scissors</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <span class="dropbtn">Machines & Kits ▾</span>
-                <div class="dropdown-content">
-                    <a href="product-detail.html?id=f270-tumbler-press">Freesub Heat Press</a>
-                    <a href="product-detail.html?id=wax-melter-5l">5L Wax Melter Kit</a>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                 <a href="#store-locator" class="nav-link" style="color: var(--fun-green);">Where to Buy</a>
-            </li>
-        </ul>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#homepage-product-grid" class="nav-link">All Products</a></li>
+                <li class="nav-item"><a href="#store-locator-pd" class="nav-link store-link">Where to Buy</a></li>
+            </ul>
+        </div>
     </nav>
+
+
     <div class="container">
         <a href="index.html" class="back-link">← Back to Collection</a>
 
@@ -86,20 +59,29 @@
                     <div id="pd-color-dots" class="color-dots-container">
                         </div>
                 </div>
-
-                 <p style="margin-top: 30px; font-weight: bold; color: var(--primary-red);">
-                    👉 Check availability on Takealot, Amazon, or Makro.
-                </p>
             </div>
         </div> <section class="related-products-section">
             <h3 id="related-title">Other Fun Supplies to Explore</h3>
             <div id="related-grid" class="related-grid">
                 </div>
         </section>
-    <footer class="site-credit-footer">
+
+          <section class="store-locator" id="store-locator-pd" style="margin-top: 60px;">
+            <h2>📍 Contact & Availability</h2>
+             <div class="contact-info-block">
+                <div class="contact-info">
+                    <p>📞 <a href="tel:0698158797" class="contact-link" target="_blank">069 815 8797</a></p>
+                    <p>📧 <a href="mailto:sales@hopeforall.co.za" class="contact-link" target="_blank">sales@hopeforall.co.za</a></p>
+                </div>
+            </div>
+            <p style="margin-top: 20px;">Check availability on Takealot, Amazon, or Makro.</p>
+        </section>
+
+    </div> <footer class="site-credit-footer">
         <p>&copy; 2025 Hope For All. All right reserved.</p>
         <p>Done by <a href="http://nateanne.co.za" target="_blank" rel="noopener" class="credit-link">Nate~Anne</a></p>
     </footer>
-    </div> <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
