@@ -581,6 +581,10 @@ header p {
     letter-spacing: 1px;
 }
 
+.site-credit-footer p {
+    margin-bottom: 0;
+}
+
 /* The Nate~Anne link style */
 .credit-link {
     color: var(--fun-green);
